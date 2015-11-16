@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #container {
+            height: 700px;
+            width: 100%;
+            margin: auto;
+        }
+        #left {
+            position: relative;
+            top:-80px;
+            float: left;
+            height: 700px;
+            width: 400px;
+
+        }
+
+        #right {
+            position: relative;
+            top:-80px;
+       	   left:-110px;
+           float: right;
+            height: 700px;
+            width: 800px;
+            /*margin: auto 0px auto 0px;*/
+
+        }
+        #left_non1 {
+            height: 100px;
+            width: 400px;
+        }
+        #left_in {
+            height: 600px;
+            width: 400px;
+
+        }
+        #left1 {
+            height: 50px;
+            width: 300px;
+        }
+        #left2 {
+            height: 50px;
+            width: 300px;
+            overflow: auto;
+        }
+        #left3 {
+            height: 500px;
+            width: 300px;
+        }
+        #right_non1 {
+            height: 100px;
+            width: 800px;
+        }
+        #right_in {
+            height: 600px;
+            width: 800px;
+        }
+         #right_con{
+            height: 600px;
+            width: 800px;
+            /*padding: 0px 50px;*/
+        }
+        #right1 {
+            height: 50px;
+            width: 800px;
+            /*width: 1000px*/
+        }
+        #right2 {
+            height: 500px;
+            width: 800px;
+            overflow: auto;
+        }
+        #right3 {
+            height: 50px;
+            width: 800px;
+        }
+
+        #fasong{
+            overflow: auto;
+        }
+        #left_con {
+            height: 600px;
+            width: 300px;
+            padding: 0px 50px;
+        }
+
+
+        /*顶层的CSS样式*/
+        #top_zong {
+            height: 100px;
+            width: 100%;
+        }
+        #top_lg {
+            float: left;
+            height: 100px;
+            width: 400px;
+        }
+        #top_right {
+            float: right;
+            height: 100px;
+            width: 600px;
+            margin: 50px 0px 0px 0px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="biankuang" id="top_zong">
+    <div  id="top_lg"><img src="images/Micro-chat2.gif" alt="" name="joas" width="400" height="100" id="joas" /></div>
+    <div id="top_right">
+                <table width="100%" border="0">
+                    <tr>
+                        <td style="font-family: clover typeface;font-size: 30px">欢迎进入聊天室！！</td>
+                        <td id="usernum" style="font-family: clover typeface;font-size: 15px"></td>
+                        <td>
+                            <button id="logout" class="btn btn-primary">注销</button>
+                        </td>
+                    </tr>
+                </table>
+
+    </div>
+</div>
+<div id="container" style="background-image: url(images/bg.jpg);">
+    <div id="left">
+        <div id="left_non1"></div>
+        <div id="left_in">
+
+            <div id="left_con">
+                <div id="left1" style="background-image: url(images/lg.gif);color: #ffffff;text-align: center"><br/>联&nbsp;系&nbsp;人</div>
+                <div id="left2" style="background: #adadad;color: #ffffff;text-align: center"><br/>当&nbsp;前&nbsp;在&nbsp;线&nbsp;人&nbsp;员</div>
+                <div id="left3" style="background: #ffffff"></div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="right_non1"></div>
+        <div id="right_in">
+            <div id="right_con">
+                <div id="right1" style="background-image: url(images/lg.gif);color: #ffffff;text-align: center"><br/>群&nbsp;名&nbsp;称</div>
+                <div id="right2" style="background-image: url(images/bgchat.gif)">聊天窗口</div>
+                <div id="right3" style="background-image: url(images/lg.gif);color: #ffffff;text-align: center">
+
+                    <div id="fasong" class="input-group">
+
+                       <div id="input_content" contenteditable="true" style="float:left;text-align:left;background-color:#fff;overflow:auto;outline:none;width: 600px; height: 50px; color: #000000"></div>
+                        <div style="width: 200px;height: 50px;float: right">
+                            <button id="say" class="btn btn-primary" style="width: 50px; height: 50px;">发送</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="clear" class="btn btn-primary" style="width: 80px; height: 50px;">清空聊天</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script src="http://sandbox.runjs.cn/js/sandbox/jquery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.cookie.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="javascripts/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+	<title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/flexslider.css"/>
+    <link href="stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+        .con{
+            float: right;
+        }
+        .con2{
+            width: 100%;
+        }
+        .con3{
+            width: 100%;
+            text-align:center;
+            margin: auto;
+        }
+         .center{
+             text-align: center;
+         }
+        .right{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<br/>
+<div class="con2">
+    <div class="con">
+        <table width="300" border="0">
+            <tr>
+                <td align="center"><button type="button" class="btn btn-success" id="login0">登录</button></td>
+                <td align="center"><button type="button" class="btn btn-success" id="regist0">注册</button></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br/>
+<!-- 轮播广告 -->
+<div id="banner_tabs" class="flexslider">
+    <ul class="slides">
+        <li>
+            <a title="" target="_blank" href="#">
+                <img width="100%" height="500px" alt="" style="background: url(images/love.gif) no-repeat center;" src="images/alpha.png">
+            </a>
+        </li>
+        <li>
+            <a title="" href="#">
+                <img width="100%" height="500px" alt="" style="background: url(images/heart.gif) no-repeat center;" src="images/alpha.png">
+            </a>
+        </li>
+        <li>
+            <a title="" href="#">
+                <img width="100%" height="500px" alt="" style="background: url(images/rabiit.gif) no-repeat center;" src="images/alpha.png">
+            </a>
+        </li>
+    </ul>
+    <ul class="flex-direction-nav">
+        <li><a class="flex-prev" href="javascript:;">Previous</a></li>
+        <li><a class="flex-next" href="javascript:;">Next</a></li>
+    </ul>
+    <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>2</a></li>
+    </ol>
+</div>
+<script src="javascripts/jquery-1.10.2.min.js"></script>
+<script src="javascripts/slider.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var bannerSlider = new Slider($('#banner_tabs'), {
+            time: 5000,
+            delay: 400,
+            event: 'hover',
+            auto: true,
+            mode: 'fade',
+            controller: $('#bannerCtrl'),
+            activeControllerCls: 'active'
+        });
+        $('#banner_tabs .flex-prev').click(function() {
+            bannerSlider.prev()
+        });
+        $('#banner_tabs .flex-next').click(function() {
+            bannerSlider.next()
+        });
+    })
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+    <p>电话：13808234586&nbsp;&nbsp;&nbsp;&nbsp;邮箱：happy_jiangbowang@163.com</p>
+    <p>©成都orient软件科技有限公司 微聊</p>
+    <p>地址：成都市成华区建设北路75号</p>
+</div>
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/bootstrap.min.js"></script>
+<script language="javascript">
+    $(function(){
+        $("#login0").click(function(){
+           location.href='login';
+        });
+        $("#regist0").click(function(){
+           location.href='register';
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+a:link {
+    color: #000;
+
+}
+a:visited {
+    color: #000;
+
+}
+a:hover {
+    color: #F00;
+    text-decoration: underline;
+}
+
+/*导航栏中表格的字体*/
+.bgfont {
+    font-family:"楷体";
+    font-size:20px;
+    color: #FFF;
+}
+/*导航栏的背景颜色*/
+.gbbackground {
+    background-color: #0C0;
+}
+/*层的边框及层内的字体*/
+.biankuang {
+    border: 1px solid #0C0;
+    font-family: "楷体";
+    font-size: 16px;
+    overflow: hidden;
+}
+/*安排层的背景及字体样式*/
+.apdiv {
+    font-family: "宋体";
+    font-size: 14px;
+    color: #FFF;
+    background-color: #0F0;
+    border: 1px solid #0C0;
+    position: relative;
+}
+/*层内的字体*/
+.div {
+    font-family: "楷体";
+    font-size: 16px;
+    overflow: hidden;
+
+
+}
+/*字体居中*/
+.juzhong {
+    text-align: center;
+
+}
+/*正文字体样式*/
+.bodyfont{
+    font-family: "楷体";
+    font-size: 16px;
+}
+
+#title {
+    height: 30px;
+    width: 640px;
+}
+#info {
+    height: 30px;
+    width: 640px;
+}
+#content {
+    margin: auto;
+    clear: both;
+    width: 640px;
+    overflow: hidden;
+}

@@ -1,0 +1,86 @@
+#!/usr/bin/nodejs
+var debug = require('debug')('my-application');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 8000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+
+//下面就是建立socket.io
+var count=0;//统计上线人数;
+var io = require('socket.io').listen(server);
+
+var users = {};//存储在线用户列表的对象
+io.sockets.on('connection', function (socket) {
+  //有人上线
+  socket.on('online',function(data){
+    //一旦有人链接上来了，count就加1;
+    count++;
+    //将上线人数广播出去
+    socket.emit('usernum',{number:count});
+    socket.broadcast.emit('usernum',{number:count});
+    //将上线的用户名存储为 socket 对象的属性，以区分每个 socket 对象，方便后面使用
+    socket.name=data.user;
+    //users 对象中不存在该用户名则插入该用
+    if(!users[data.user]){
+      users[data.user]=data.user;
+    }
+    //向所有用户广播该用户上线信息
+    io.sockets.emit('online',{users:users,user:data.user});
+  });
+  //有人说话打时候就监听say这个事件
+  socket.on('say',function(data){
+    //向其他所有用户广播该用户发话信息
+    socket.broadcast.emit('say',data);
+  });
+  //有人下线
+  socket.on('disconnect', function() {
+    //若 users 对象中保存了该用户名
+    if (users[socket.name]) {
+      //有人断开链接count就减一
+      count--;
+      //将在线人数广播出去
+      socket.broadcast.emit('usernum', {number: count});
+      //从 users 对象中删除该用户名
+      delete users[socket.name];
+      //向其他所有用户广播该用户下线信息
+      socket.broadcast.emit('offline', {users: users, user: socket.name});
+    }
+  });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
